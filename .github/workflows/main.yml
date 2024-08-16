@@ -1,5 +1,8 @@
 name: Deploy Bicep file
-on: [push]
+on:
+  push:
+    branches:
+      - main
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -7,6 +10,18 @@ jobs:
 
     - name: Checkout code
       uses: actions/checkout@main
+
+    - name: Configure Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '20'
+
+    - name: Install npm dependencies
+      run: npm ci
+
+    - name: Build react app
+      run: npm run build
+
 
     - name: Log into Azure
       uses: azure/login@v1
@@ -19,5 +34,5 @@ jobs:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
         template: ./.github/workflows/main.bicep
-        parameters: 'storagePrefix=basketball storageSKU=Standard_LRS'
+        parameters: swaName=${{ secrets.SWA_NAME }} buildLocation=./dist
         failOnStdErr: false
