@@ -14,5 +14,7 @@ module staticWebApp 'swa.bicep' = {
         sku: swaSku
         name: swaName
         buildLocation: buildLocation
+        repositoryUrl: 'https://github.com/CoryBall/react_basketball.git'
+        repositoryBranch: 'main'
     }
 }
