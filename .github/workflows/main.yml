@@ -18,6 +18,6 @@ jobs:
       with:
         subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
         resourceGroupName: ${{ secrets.AZURE_RG }}
-        template: ./.github/workflows/main.bicep
-        parameters: 'storagePrefix=3d-basketball storageSKU=Standard_LRS'
+        template: ./main.bicep
+        parameters: 'storagePrefix=basketball storageSKU=Standard_LRS'
         failOnStdErr: false
