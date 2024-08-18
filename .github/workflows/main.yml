@@ -42,12 +42,12 @@ jobs:
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
-          template: ./.infra/main.bicep
+          template: .infra/main.bicep
           parameters: |
-            branch='main' \
-            name='${{ env.STATICWEBAPPNAME }}' \
-            tags='${{ env.TAGS }}' \
-            repositoryToken='${{ secrets.WORKFLOW_TOKEN }}' \
+            branch='main'
+            name='${{ env.STATICWEBAPPNAME }}'
+            tags='${{ env.TAGS }}'
+            repositoryToken='${{ secrets.WORKFLOW_TOKEN }}'
             customDomainName='${{ env.STATICWEBAPPNAME }}'
 
       - name: Static Web App - deploy infra
@@ -57,12 +57,12 @@ jobs:
         with:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: ${{ secrets.AZURE_RG }}
-          template: ./.infra/main.bicep
+          template: .infra/main.bicep
           parameters: |
-            branch='main' \
-            name='${{ env.STATICWEBAPPNAME }}' \
-            tags='${{ env.TAGS }}' \
-            repositoryToken='${{ secrets.WORKFLOW_TOKEN }}' \
+            branch='main'
+            name='${{ env.STATICWEBAPPNAME }}'
+            tags='${{ env.TAGS }}'
+            repositoryToken='${{ secrets.WORKFLOW_TOKEN }}'
             customDomainName='${{ env.STATICWEBAPPNAME }}'
 
       - name: Static Web App - get API key for deployment
