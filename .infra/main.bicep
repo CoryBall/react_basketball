@@ -3,7 +3,7 @@ param branch string
 param name string
 @secure()
 param repositoryToken string
-param customDomainName string
+// param customDomainName string
 
 resource staticWebApp  'Microsoft.Web/staticSites@2023-12-01' = {
   name: name
