@@ -11,7 +11,6 @@ on:
 env:
   LOCATION: centralus
   STATICWEBAPPNAME: basketball.coryball.dev
-  TAGS: '{"owner":"coryball", "email":"coryball97@gmail.com"}'
 
 jobs:
   build_and_deploy_swa_job:
@@ -46,7 +45,6 @@ jobs:
           parameters: |
             branch=main
             name=${{ env.STATICWEBAPPNAME }}
-            tags=${{ env.TAGS }}
             repositoryToken=${{ secrets.WORKFLOW_TOKEN }}
             customDomainName=${{ env.STATICWEBAPPNAME }}'
 
@@ -61,7 +59,6 @@ jobs:
           parameters: |
             branch=main
             name=${{ env.STATICWEBAPPNAME }}
-            tags=${{ env.TAGS }}
             repositoryToken=${{ secrets.WORKFLOW_TOKEN }}
             customDomainName=${{ env.STATICWEBAPPNAME }}'
 
