@@ -25,11 +25,11 @@ resource staticWebApp  'Microsoft.Web/staticSites@2023-12-01' = {
   }
 }
 
-resource customDomain 'Microsoft.Web/staticSites/customDomains@2021-02-01' = {
-  parent: staticWebApp
-  name: customDomainName
-  properties: {}
-}
+// resource customDomain 'Microsoft.Web/staticSites/customDomains@2021-02-01' = {
+//   parent: staticWebApp
+//   name: customDomainName
+//   properties: {}
+// }
 
 output staticWebAppDefaultHostName string = staticWebApp.properties.defaultHostname // eg gentle-bush-0db02ce03.azurestaticapps.net
 output staticWebAppId string = staticWebApp.id
